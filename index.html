@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind css</title>
+    <style>
+        /* Apply grayscale initially */
+        #scrollContent img {
+            filter: grayscale(100%);
+            transition: filter 0.7s ease-in-out;
+        }
+
+        /* Remove grayscale on hover */
+        #scrollContainer:hover #scrollContent img {
+            filter: none;
+        }
+
+
+        .scroll-container {
+            animation: scrollUpDown 10s linear infinite;
+        }
+
+        @keyframes scrollUpDown {
+            0% {
+                transform: translateY(0%);
+            }
+
+            50% {
+                transform: translateY(-100%);
+            }
+
+            100% {
+                transform: translateY(0%);
+            }
+        }
+
+
+        /* Custom animation for sliding in and out */
+        .slide-in-right {
+            animation: slideInRight 0.7s forwards;
+        }
+
+        .slide-out-left {
+            animation: slideOutLeft 0.7s forwards;
+        }
+
+        .slide-in-left {
+            animation: slideInLeft 0.7s forwards;
+        }
+
+        .slide-out-right {
+            animation: slideOutRight 0.7s forwards;
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOutLeft {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
+        .scrolling-content {
+            white-space: nowrap;
+        }
+    </style>
+    <link rel="stylesheet" href="dist/output.css">
+</head>
+
+<body class="bg-sky-100">
+    <nav class="fixed flex bg-sky-100 pb-6 pr-16 z-50 w-[1349px]">
+        <img src="images/razorpay logo.gif" alt="RAZORPAY" class="h-10 mt-6 pl-16">
+        <div class="flex space-x-4 mt-2.5 text-lg ml-10">
+            <div class="relative group mt-6 pl-16">
+                <button
+                    class="text-blue-900 font-semibold hover:text-red-600 hover:underline decoration-4">Payments</button>
+                <div
+                    class="bg-sky-200 absolute hidden mt-4 group-hover:grid grid-cols-4 gap-5 text-sm shadow-lg  w-[45rem]">
+                    <a href="#"
+                        class="block text-lg px-4 py-4 font-bold hover:text-red-600 hover:underline decoration-4">Payment
+                        Aggregator </a>
+                    <a href="#"
+                        class="block text-lg px-4 py-4 font-bold hover:text-red-600 hover:underline decoration-4">Payment
+                        Gateway</a>
+                    <a href="#"
+                        class="block text-lg px-4 py-4 font-bold hover:text-red-600 hover:underline decoration-4">Payment
+                        Links</a>
+                    <a href="#"
+                        class="block text-lg px-4 py-4 font-bold hover:text-red-600 hover:underline decoration-4">Payment
+                        Pages</a>
+                    <a href="#"
+                        class="block text-lg px-4 py-4 font-bold hover:text-red-600 hover:underline decoration-4">Payment
+                        Buttons</a>
+                    <a href="#"
+                        class="block text-lg px-4 py-4 font-bold hover:text-red-600 hover:underline decoration-4">Qr
+                        Codes</a>
+                    <a href="#"
+                        class="block text-lg px-4 py-4 font-bold hover:text-red-600 hover:underline decoration-4">Instant
+                        Settlement</a>
+                    <a href="#"
+                        class="block text-lg px-4 py-4 font-bold hover:text-red-600 hover:underline decoration-4">Smart
+                        Collect</a>
+                </div>
+            </div>
+            <div class="relative group mt-6">
+                <button
+                    class="text-blue-900 font-semibold hover:text-red-600 hover:underline decoration-4">Banking+</button>
+                <div
+                    class="bg-sky-200 absolute hidden mt-4 group-hover:grid grid-cols-4 gap-5 text-sm shadow-lg  w-[40rem]">
+                    <a href="#"
+                        class="block text-lg px-4 py-4 font-bold hover:text-red-600 hover:underline decoration-4">RazorpayX</a>
+                    <a href="#"
+                        class="block text-lg px-4 py-4 font-bold hover:text-red-600 hover:underline decoration-4">Source
+                        to Pay</a>
+                    <a href="#"
+                        class="block text-lg px-4 py-4 font-bold hover:text-red-600 hover:underline decoration-4">Payouts</a>
+                    <a href="#"
+                        class="block text-lg px-4 py-4 font-bold hover:text-red-600 hover:underline decoration-4">Payout
+                        Links</a>
+                    <a href="#"
+                        class="block text-lg px-4 py-4 font-bold hover:text-red-600 hover:underline decoration-4">View
+                        Live Demo</a>
+                    <a href="#"
+                        class="block text-lg px-4 py-4 font-bold hover:text-red-600 hover:underline decoration-4">Current
+                        Account</a>
+                    <a href="#"
+                        class="block text-lg px-4 py-4 font-bold hover:text-red-600 hover:underline decoration-4">Escrow
+                        + Account</a>
+                    <a href="#"
+                        class="block text-lg px-4 py-4 font-bold hover:text-red-600 hover:underline decoration-4">Tax
+                        Payments</a>
+                </div>
+            </div>
+            <div class="relative group mt-6">
+                <button
+                    class="text-blue-900 font-semibold hover:text-red-600 hover:underline decoration-4">Payroll</button>
+                <div class="absolute hidden mt-4 group-hover:grid grid-rows-2 bg-sky-200 text-sm shadow-lg  w-[15rem]">
+                    <a href="#"
+                        class="block text-lg px-4 py-4 font-bold hover:text-red-600 hover:underline decoration-4">For
+                        Startups & SMEs</a>
+                    <a href="#"
+                        class="block text-lg px-4 py-4 font-bold hover:text-red-600 hover:underline decoration-4">For
+                        Enterprises</a>
+                </div>
+            </div>
+            <div class="relative group mt-6">
+                <button
+                    class="text-blue-900 font-semibold hover:text-red-600 hover:underline decoration-4">Partner</button>
+                <div class="absolute hidden mt-4 group-hover:grid grid-rows-3 bg-sky-200 text-sm shadow-lg  w-[25rem]">
+                    <a href="#"
+                        class="block text-lg px-4 py-4 font-bold hover:text-red-600 hover:underline decoration-4">Partner
+                        Program</a>
+                    <a href="#"
+                        class="block text-lg px-4 py-4 font-bold hover:text-red-600 hover:underline decoration-4">Embeded
+                        Payments</a>
+                    <a href="#"
+                        class="block text-lg px-4 py-4 font-bold hover:text-red-600 hover:underline decoration-4">Accounting
+                        Partners</a>
+
+                </div>
+            </div>
+            <div class="relative group mt-6">
+                <button
+                    class="text-blue-900 font-semibold hover:text-red-600 hover:underline decoration-4">Resources</button>
+                <div
+                    class="absolute hidden mt-4 group-hover:grid grid-cols-4 gap-5  bg-sky-200 text-sm shadow-lg  w-[40rem]">
+                    <a href="#"
+                        class="block text-lg px-4 py-6 font-bold hover:text-red-600 hover:underline decoration-4">Blog</a>
+                    <a href="#"
+                        class="block text-lg px-4 py-6 font-bold hover:text-red-600 hover:underline decoration-4">Learn</a>
+                    <a href="#"
+                        class="block text-lg px-4 py-6 font-bold hover:text-red-600 hover:underline decoration-4">Events</a>
+                    <a href="#"
+                        class="block text-lg px-4 py-6 font-bold hover:text-red-600 hover:underline decoration-4">White
+                        Papers</a>
+                    <a href="#"
+                        class="block text-lg px-4 py-6 font-bold hover:text-red-600 hover:underline decoration-4">Customer
+                        Services</a>
+                    <a href="#"
+                        class="block text-lg px-4 py-6 font-bold hover:text-red-600 hover:underline decoration-4">Integrations</a>
+                    <a href="#"
+                        class="block text-lg px-4 py-6 font-bold hover:text-red-600 hover:underline decoration-4">API
+                        Reference</a>
+                    <a href="#"
+                        class="block text-lg px-4 py-6 font-bold hover:text-red-600 hover:underline decoration-4">Developer
+                        Docs</a>
+                </div>
+            </div>
+            <div class="relative group mt-6">
+                <button
+                    class="text-blue-900 font-semibold hover:text-red-600 hover:underline decoration-4">Support</button>
+                <div class="absolute hidden mt-4 group-hover:grid grid-rows-8 bg-sky-200 text-sm shadow-lg  w-[20rem]">
+                    <a href="#"
+                        class="block text-lg px-4 py-4 font-bold hover:text-red-600 hover:underline decoration-4">Raise
+                        a Ticket for Payments</a>
+                    <a href="#"
+                        class="block text-lg px-4 py-4 font-bold hover:text-red-600 hover:underline decoration-4">Raise
+                        a Ticket for Banking+</a>
+                    <a href="#"
+                        class="block text-lg px-4 py-4 font-bold hover:text-red-600 hover:underline decoration-4">Raise
+                        a Ticket for Payroll</a>
+                    <a href="#"
+                        class="block text-lg px-4 py-4 font-bold hover:text-red-600 hover:underline decoration-4">Raise
+                        a Ticket for Pos</a>
+                    <a href="#"
+                        class="block text-lg px-4 py-4 font-bold hover:text-red-600 hover:underline decoration-4">Raise
+                        a Ticket for Digital Landing</a>
+                    <a href="#"
+                        class="block text-lg px-4 py-4 font-bold hover:text-red-600 hover:underline decoration-4">Knowlwdgebase</a>
+                    <a href="#"
+                        class="block text-lg px-4 py-4 font-bold hover:text-red-600 hover:underline decoration-4">Chargeback
+                        Guides</a>
+                    <a href="#"
+                        class="block text-lg px-4 py-4 font-bold hover:text-red-600 hover:underline decoration-4">Settlement
+                        Guides</a>
+                </div>
+            </div>
+            <div class="relative group mt-6">
+                <button class="text-blue-900 font-semibold hover:text-red-600">Pricing</button>
+
+            </div>
+
+        </div>
+        <div class="flex space-x-4 mt-8 text-lg pl-24">
+            <div class="relative group">
+                <button class="flex items-center space-x-2">
+                    <img src="images/flag-img.png" alt="India Flag" class="h-8">
+                    <span class="text-blue-600">&#x25BC;</span>
+                </button>
+                <div
+                    class="absolute hidden group-hover:block mt-2 w-40 bg-white shadow-md border border-gray-200 rounded-md z-10">
+                    <div class="flex items-center space-x-2">
+                        <img src="images/flag-img.png" alt="INDIA" class="h-8 ml-3">
+                        <span class="text-black text-lg p-2">India</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <img src="images/malaysia-flag.png" alt="MALAYSIA" class="h-8 ml-3">
+                        <span class="text-black text-lg p-2">Malaysia</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <img src="images/singapore-flag.avif" alt="SINGAPORE" class="h-6 ml-3">
+                        <span class="text-black text-lg p-2">Singapore</span>
+                    </div>
+                </div>
+            </div>
+            <button
+                class="border pl-3 pr-3 rounded-md border-sky-600 font-medium text-blue-900 hover:bg-sky-200">Login</button>
+            <button
+                class="bg-blue-500 border pl-4 pr-3 rounded-md border-sky-500 font-medium text-white hover:bg-blue-800">Sign
+                Up -></button>
+        </div>
+    </nav>
+    <div>
+        <!-- Slideshow Container -->
+        <div id="slideshow" class="flex flex-row items-center overflow-hidden">
+            <div class="flex flex-col md:flex-row px-6 py-12 mt-12 w-full slide">
+                <!-- Text Section -->
+                <div class="md:w-1/2 flex flex-col mb-8 md:mb-0">
+                    <h1 class="text-5xl absolute z-0 text-blue-600 font-semibold pl-16 pt-36">Advanced Payment Solutions
+                    </h1>
+                    <p class="text-5xl absolute font-semibold text-black pl-16 pt-52">for India's finest disruptors</p>
+                    <span class="pl-16 text-slate-950 font-medium absolute pt-64 flex mt-3">
+                        100+ Payment Methods | Easy Integration | Powerful Dashboard
+                    </span>
+                    <div class="mt-6 flex space-x-4">
+                        <button
+                            class="bg-blue-500 border max-w-44 ml-16 py-2 px-3 mt-72 rounded-md border-sky-500 text-xl font-medium text-white hover:bg-blue-800">
+                            Sign Up Now ->
+                        </button>
+                        <a href="#" class="font-medium text-blue-600 mt-72 pt-3 hover:underline">Know More</a>
+                    </div>
+                </div>
+                <!-- Image Section -->
+                <div class="flex">
+                    <img src="images/girl1.png" alt="Razorpay POS"
+                        class="w-full max-w-7xl mr-96 rounded-lg object-cover" />
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row px-6 py-12 mt-12 w-full slide">
+                <!-- Text Section -->
+                <div class="md:w-1/2 flex flex-col mb-8 md:mb-0">
+                    <h1 class="text-5xl absolute text-blue-600 font-semibold pl-16 pt-36">Automated Payroll</h1>
+                    <p class="text-5xl absolute font-semibold text-black pl-16 pt-52">for India's finest disruptors</p>
+                    <span class="pl-16 text-slate-950 font-medium absolute pt-64 flex mt-3">
+                        Automated Payroll & Compliances | Built for Automation & Enterprises
+                    </span>
+                    <div class="mt-6 flex space-x-4">
+                        <button
+                            class="bg-blue-500 border max-w-44 ml-16 py-2 px-3 mt-72 rounded-md border-sky-500 text-xl font-medium text-white hover:bg-blue-800">
+                            Sign Up Now ->
+                        </button>
+                        <a href="#" class="font-medium text-blue-600 mt-72 pt-3 hover:underline">Know More</a>
+                    </div>
+                </div>
+                <!-- Image Section -->
+                <div class="flex">
+                    <img src="images/girl2.png" alt="Razorpay POS"
+                        class="w-full max-w-7xl mr-96 rounded-lg object-cover" />
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row px-6 py-12 mt-12 w-full slide">
+                <!-- Text Section -->
+                <div class="md:w-1/2 flex flex-col mb-8 md:mb-0">
+                    <h1 class="text-5xl absolute text-blue-600 font-semibold pl-16 pt-36">Easy In-Person Payments</h1>
+                    <p class="text-5xl absolute font-semibold text-black pl-16 pt-52">for India's finest disruptors</p>
+                    <span class="pl-16 text-slate-950 font-medium absolute pt-64 flex mt-3">
+                        Quick Payment | Seemsless Integration | Top Tier UPI Stack
+                    </span>
+                    <div class="mt-6 flex space-x-4">
+                        <button
+                            class="bg-blue-500 border max-w-44 ml-16 py-2 px-3 mt-72 rounded-md border-sky-500 text-xl font-medium text-white hover:bg-blue-800">
+                            Sign Up Now ->
+                        </button>
+                        <a href="#" class="font-medium text-blue-600 mt-72 pt-3 hover:underline">Know More</a>
+                    </div>
+                </div>
+                <!-- Image Section -->
+                <div class="flex">
+                    <img src="images/men1.png" alt="Razorpay POS"
+                        class="w-full max-w-7xl mr-96 rounded-lg object-cover" />
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row px-6 py-12 mt-12 w-full slide">
+                <!-- Text Section -->
+                <div class="md:w-1/2 flex flex-col mb-8 md:mb-0">
+                    <h1 class="text-5xl absolute text-blue-600 font-semibold pl-16 pt-36">Effortless Banking</h1>
+                    <p class="text-5xl absolute font-semibold text-black pl-16 pt-52">for India's finest disruptors</p>
+                    <span class="pl-16 text-slate-950 font-medium absolute pt-64 flex mt-3">
+                        Powerful Automation | Smart Dashboard | Integrated Access
+                    </span>
+                    <div class="mt-6 flex space-x-4">
+                        <button
+                            class="bg-blue-500 border max-w-44 ml-16 py-2 px-3 mt-72 rounded-md border-sky-500 text-xl font-medium text-white hover:bg-blue-800">
+                            Sign Up Now ->
+                        </button>
+                        <a href="#" class="font-medium text-blue-600 mt-72 pt-3 hover:underline">Know More</a>
+                    </div>
+                </div>
+                <!-- Image Section -->
+                <div class="flex">
+                    <img src="images/men2.avif" alt="Razorpay POS"
+                        class="w-full max-w-7xl mr-96 rounded-lg object-cover" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <button id="prevBtn"
+            class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-sky-100 text-blue-700 px-4 py-2 rounded-full shadow-md">
+            &#10094;
+        </button>
+        <button id="nextBtn"
+            class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-sky-100 text-blue-700 px-4 py-2 rounded-full shadow-md">
+            &#10095;
+        </button>
+    </div>
+
+    <div class="flex flex-row h-16 ml-16 mr-16 rounded-lg gap-2 bg-slate-300">
+        <span class="mt-5 ml-4">I'm here to</span>
+        <button class="bg-sky-100 font-normal rounded-2xl h-8 mt-4 w-36 hover:text-sky-700 hover:bg-sky-200">Accept
+            Payments</button>
+        <button class="bg-sky-100 font-normal rounded-2xl h-8 mt-4 w-36 hover:text-sky-700 hover:bg-sky-200">Make
+            Payments</button>
+        <button class="bg-sky-100 font-normal rounded-2xl h-8 mt-4 w-44 hover:text-sky-700 hover:bg-sky-200">Start
+            Business Banking</button>
+        <button class="bg-sky-100 font-normal rounded-2xl h-8 mt-4 w-36 hover:text-sky-700 hover:bg-sky-200">Get Credit
+            Loans</button>
+        <button class="bg-sky-100 font-normal rounded-2xl h-8 mt-4 w-36 hover:text-sky-700 hover:bg-sky-200">Automate
+            Payroll</button>
+        <span class="mt-5 ml-6 text-sky-900">// Find the best product for your business</span>
+    </div>
+
+    <div id="scrollContainer" class="overflow-hidden">
+        <button id="scrollContent" class="flex h-32 gap-20 bg-sky-100 filter">
+            <img src="images/logo1.png" alt="ZERODHA" class="h-5 mt-12 grayscale">
+            <img src="images/logo2.png" alt="GO IBIBO" class="h-32 grayscale">
+            <img src="images/logo3.png" alt="CURE-FIT" class="h-14 mt-8 grayscale">
+            <img src="images/logo4.png" alt="CLEAR TAX" class="h-8 mt-12 grayscale">
+            <img src="images/logo5.png" alt="BOOK MY SHOW" class="h-10 mt-10 grayscale">
+            <img src="images/logo6.png" alt="BMW" class="h-14 mt-10 grayscale">
+            <img src="images/logo7.png" alt="ATHER" class="h-10 mt-10 grayscale">
+            <img src="images/logo8.png" alt="APOLLO MUNCH" class="h-12 mt-12 grayscale">
+            <img src="images/logo9.png" alt="NIIT" class="h-10 mt-10 grayscale">
+            <img src="images/logo10.jpg" alt="ZOHO" class="h-12 mt-10 grayscale">
+            <img src="images/logo11.jpg" alt="UNACADEMY" class="h-14 mt-10 grayscale">
+            <img src="images/logo12.png" alt="URBAN COMPANY" class="h-10 mt-12 grayscale">
+            <img src="images/logo13.png" alt="SWIGGY" class="h-10 mt-12 grayscale">
+            <img src="images/logo14.png" alt="PAISA BAZAAR" class="h-14 mt-10 grayscale">
+            <img src="images/logo15.png" alt="NYKAA" class="h-10 mt-10 grayscale">
+        </button>
+    </div>
+
+    <img src="images/anniversay.avif" alt="anniversary" class="ml-4 rounded-lg">
+
+    <div class="flex flex-row pl-16 mt-24 mb-3">
+        <span class="text-6xl font-semibold font-sans">The all in one</span>
+        <span class="text-6xl font-semibold ml-3 font-sans text-green-700">finance platform</span>
+    </div>
+
+    <span class="pl-16 text-6xl font-semibold font-sans">you’ve been looking for</span>
+
+    <div class="flex flex-row pl-16 gap-8 mt-7">
+        <span class="text-lg text-slate-800 font-semibold">With Razorpay, you can:</span>
+        <span>|</span>
+        <button class="text-slate-950 font-bold hover:underline">Accept Payments</button>
+        <button class="text-slate-950 font-bold hover:underline">Make Payouts</button>
+        <button class="text-slate-950 font-bold hover:underline">Start Business Banking</button>
+        <button class="text-slate-950 font-bold hover:underline">Automate Payroll</button>
+        <button class="text-slate-950 font-bold hover:underline">Get Credeit & Loans</button>
+    </div>
+
+    <div class="flex flex-row mt-28 bg-slate-50 pt-20 gap-44">
+        <div class="flex flex-col gap-2">
+            <span class="pl-16 text-6xl font-semibold font-sans">Powering every industry. </span>
+            <span class="pl-16 text-6xl font-semibold font-sans">Powering all disruptors.</span>
+        </div>
+
+        <div class="h-10 overflow-hidden">
+            <div class="flex flex-row gap-5">
+                <!-- Column 1 -->
+                <div class="overflow-hidden">
+                    <div class="scroll-container">
+                        <img src="images/col-1.png" alt="Icon 1" class="h-80">
+                    </div>
+                </div>
+
+                <!-- Column 2 -->
+                <div class="overflow-hidden">
+                    <div class="scroll-container">
+                        <img src="images/col-2.png" alt="Icon 2" class="h-40">
+                    </div>
+                </div>
+
+                <!-- Column 3 -->
+                <div class="overflow-hidden">
+                    <div class="scroll-container">
+                        <img src="images/col-3.png" alt="Icon 3" class="h-96">
+                    </div>
+                </div>
+
+                <!-- Column 4 -->
+                <div class="overflow-hidden">
+                    <div class="scroll-container">
+                        <img src="images/col-4.png" alt="Icon 4" class="h-80">
+                    </div>
+                </div>
+
+                <!-- Column 5 -->
+                <div class="overflow-hidden">
+                    <div class="scroll-container">
+                        <img src="images/col-5.png" alt="Icon 5" class="h-40">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="bg-slate-50 pb-16 mb-32">
+        <!-- Navigation Buttons -->
+        <div class="flex flex-row pt-16 bg-slate-50 gap-8">
+            <button
+                class="ml-16 text-gray-500 font-bold font-sans hover:text-slate-900 border-b-4 border-transparent active-btn"
+                data-target="section1">E-Commerce</button>
+            <button class="text-gray-500 font-bold font-sans hover:text-slate-900 border-b-4 border-transparent"
+                data-target="section2">Education</button>
+            <button class=" text-gray-500 font-bold font-sans hover:text-slate-900 border-b-4 border-transparent"
+                data-target="section3">BFSI</button>
+            <button class=" text-gray-500 font-bold font-sans hover:text-slate-900 border-b-4 border-transparent"
+                data-target="section4">SaaS</button>
+            <button class=" text-gray-500 font-bold font-sans hover:text-slate-900 border-b-4 border-transparent"
+                data-target="section5">Freelancer</button>
+        </div>
+
+        <!-- Content Sections -->
+        <div class="relative overflow-hidden h-[560px]">
+            <!-- Section 1 -->
+            <div id="section1" class="absolute pt-8 border w-full h-full transition-transform">
+                <div class="relative w-[1220px] h-[550px] bg-cover bg-no-repeat bg-center rounded-lg overflow-hidden mx-auto"
+                    style="background-image: url('images/card1.avif');">
+                    <div class="absolute inset-0 flex items-center bg-opacity-50">
+                        <div class="bg-slate-50 w-[560px] h-[450px] ml-11 rounded-md flex flex-col pl-5">
+                            <span class="mt-8 text-5xl font-semibold font-sans">Empower your</span>
+                            <span class="text-green-700 text-5xl font-semibold font-sans">e-commerce business</span>
+                            <p class=" mt-8 text-1xl text-gray-500 font-normal font-sans">
+                                Streamline payment management with a unified dashboard, enabling both online and
+                                in-person
+                                payment collection while enhancing conversion rates and minimizing fraud.
+                            </p>
+                            <div class="pt-8 flex flex-row gap-4">
+                                <img src="images/comp1.avif" alt="companies logo" class="grayscale h-6 mt-5">
+                                <img src="images/comp2.avif" alt="companies logo" class="grayscale h-6 mt-5">
+                                <img src="images/comp3.avif" alt="companies logo" class="grayscale h-6 mt-5">
+                                <img src="images/comp4.avif" alt="companies logo" class="grayscale h-11 mt-2">
+                                <span class="grayscale mt-5 text-1xl text-gray-500 font-normal font-sans">+ 70,000
+                                    others</span>
+                            </div>
+                            <button
+                                class="bg-blue-500 mt-10 border max-w-44 pb-3 pt-3 rounded-md border-sky-500 font-medium text-xl text-white hover:bg-blue-800">
+                                See Solutions ->
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2 -->
+            <div id="section2" class="absolute pt-8 border w-full h-full hidden">
+                <div class="relative w-[1220px] h-[500px] bg-cover bg-no-repeat bg-center rounded-lg overflow-hidden mx-auto"
+                    style="background-image: url('images/card2.avif');">
+                    <div class="absolute inset-0 flex items-center bg-opacity-50">
+                        <div class="bg-slate-50 w-[560px] h-[450px] ml-11 rounded-md flex flex-col pl-5">
+                            <span class="mt-8 text-5xl font-semibold font-sans">Payments for your </span>
+                            <span class="text-green-700 text-5xl font-semibold font-sans">education business.</span>
+                            <p class=" mt-8 text-1xl text-gray-500 font-normal font-sans">
+                                Effortlessly establish and monitor fee payments and vendor payouts for educational
+                                institutions, tutorials, or online courses, whether you have a website or not.
+                            </p>
+                            <div class="pt-8 flex flex-row gap-4">
+                                <img src="images/comp5.avif" alt="companies logo" class="grayscale h-6 mt-5">
+                                <img src="images/comp6.avif" alt="companies logo" class="grayscale h-6 mt-5">
+                                <img src="images/comp7.avif" alt="companies logo" class="grayscale h-6 mt-5">
+                                <img src="images/comp8.avif" alt="companies logo" class="grayscale h-8 mt-3">
+                                <span class="grayscale mt-5 text-1xl text-gray-500 font-normal font-sans">+ 21,000
+                                    others</span>
+                            </div>
+                            <button
+                                class="bg-blue-500 mt-10 border max-w-44 pb-3 pt-3 rounded-md border-sky-500 font-medium text-xl text-white hover:bg-blue-800">
+                                See Solutions ->
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3 -->
+            <div id="section3" class="absolute pt-8 border w-full h-full hidden">
+                <div class="relative w-[1220px] h-[500px] bg-cover bg-no-repeat bg-center rounded-lg overflow-hidden mx-auto"
+                    style="background-image: url('images/card3.avif');">
+                    <div class="absolute inset-0 flex items-center bg-opacity-50">
+                        <div class="bg-slate-50 w-[560px] h-[450px] ml-11 rounded-md flex flex-col pl-5">
+                            <span class="mt-8 text-4xl font-semibold font-sans">Payments ecosystem for </span>
+                            <span class="text-green-700 text-4xl font-semibold font-sans">financial services</span>
+                            <p class=" mt-8 text-1xl text-gray-500 font-normal font-sans">
+                                Streamline collection management, automate recurring payments, and expedite loan
+                                disbursement for a comprehensive financial solution.
+                            </p>
+                            <div class="pt-8 flex flex-row gap-4">
+                                <img src="images/comp9.avif" alt="companies logo" class="grayscale h-6 mt-5">
+                                <img src="images/comp10.avif" alt="companies logo" class="grayscale h-6 mt-5">
+                                <img src="images/comp11.avif" alt="companies logo" class="grayscale h-5 mt-5">
+                                <img src="images/comp12.avif" alt="companies logo" class="grayscale h-9 mt-3">
+                                <span class="grayscale mt-4 text-1xl text-gray-500 font-normal font-sans">+ 2800
+                                    others</span>
+                            </div>
+                            <button
+                                class="bg-blue-500 mt-10 border max-w-44 pb-3 pt-3 rounded-md border-sky-500 font-medium text-xl text-white hover:bg-blue-800">
+                                See Solutions ->
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4 -->
+            <div id="section4" class="absolute w-full pt-8 border h-full hidden">
+                <div class="relative w-[1220px] h-[500px] bg-cover bg-no-repeat bg-center rounded-lg overflow-hidden mx-auto"
+                    style="background-image: url('images/card4.avif');">
+                    <div class="absolute inset-0 flex items-center bg-opacity-50">
+                        <div class="bg-slate-50 w-[560px] h-[450px] ml-11 rounded-md flex flex-col pl-5">
+                            <span class="mt-8 text-4xl font-semibold font-sans">Global Payment Solutions</span>
+                            <span class="text-green-700 text-4xl font-semibold font-sans">for IT & SaaS Providers</span>
+                            <p class=" mt-8 text-1xl text-gray-500 font-normal font-sans">
+                                Seamlessly accept payments in over 100 currencies, facilitate customizable subscription
+                                payments, and efficiently execute vendor payouts.
+                            </p>
+                            <div class="pt-8 flex flex-row gap-4">
+                                <img src="images/comp13.png" alt="companies logo" class="grayscale h-6 mt-5">
+                                <img src="images/comp14.avif" alt="companies logo" class="grayscale h-6 mt-5">
+                                <img src="images/comp15.avif" alt="companies logo" class="grayscale h-4 mt-6">
+                                <img src="images/comp16.avif" alt="companies logo" class="grayscale h-9 mt-3">
+                                <span class="grayscale mt-4 text-1xl text-gray-500 font-normal font-sans">+ 13,500
+                                    others</span>
+                            </div>
+                            <button
+                                class="bg-blue-500 mt-10 border max-w-44 pb-3 pt-3 rounded-md border-sky-500 font-medium text-xl text-white hover:bg-blue-800">
+                                See Solutions ->
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Section 5 -->
+            <div id="section5" class="absolute w-full pt-8 border h-full hidden">
+                <div class="relative w-[1220px] h-[500px] bg-cover bg-no-repeat bg-center rounded-lg overflow-hidden mx-auto"
+                    style="background-image: url('images/card5.avif');">
+                    <div class="absolute inset-0 flex items-center bg-opacity-50">
+                        <div class="bg-slate-50 w-[560px] h-[450px] ml-11 rounded-md flex flex-col pl-5">
+                            <span class="mt-8 text-4xl font-semibold font-sans">The personalized payment</span>
+                            <span class="text-green-700 text-4xl font-semibold font-sans">solution for
+                                freelancers</span>
+                            <p class=" mt-8 text-1xl text-gray-500 font-normal font-sans">
+                                Easily accept payments, even without a website and without any coding expertise, while
+                                also enabling the creation of your personalized, branded online store.
+                            </p>
+                            <button
+                                class="bg-blue-500 border max-w-44 pb-3 pt-3 mt-28 rounded-md border-sky-500 font-medium text-xl text-white hover:bg-blue-800">
+                                See Solutions ->
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <span class="pl-16 text-4xl font-semibold">We have innovated at every instance, creating a disruption.</span>
+    <div class="flex flex-row relative mb-24">
+        <!-- Left Button -->
+        <button id="leftButton"
+            class="absolute left-0 top-[50%] transform -translate-y-[50%] bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+            &#10094;
+        </button>
+
+        <div id="container" class="flex flex-row overflow-hidden w-full">
+            <!-- Parent Folder 1 -->
+            <div class="flex-shrink-0 flex flex-row w-full">
+                <div class="pt-20 flex flex-row gap-8">
+                    <div class="bg-slate-50 w-[850px] h-[550px] ml-16 flex flex-col">
+                        <span class="text-slate-500 text-xl font-medium pt-10 pl-10">MoneySaver Export Account</span>
+                        <span class="pl-10 pt-5 text-5xl font-medium"> <span class="text-blue-700">Open a virtual
+                                account in
+                                200+ countries,</span>
+                            <span>save up to 50% on international bank transfer charges.</span></span>
+                        <span class="pl-10 text-5xl font-medium">Receive ACH/SWIFT/SEPA/BACS payments</span>
+                        <span class="text-slate-600 pl-10 pt-20 text-xl">Receive international wire transfers with ease
+                            with a smart account</span>
+                        <div class="mt-8 flex space-x-4">
+                            <button
+                                class="bg-blue-500 border max-w-44 ml-10 py-2 px-3 rounded-md border-sky-500 text-xl font-medium text-white hover:bg-blue-800">
+                                Sign Up Now ->
+                            </button>
+                            <a href="#" class="font-medium text-blue-600 pt-3 hover:underline">Know More</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 w-[330px] h-[550px] mr-16">
+                        <div class="flex flex-col pr-12">
+                            <span class="text-slate-500 text-xl font-medium pt-10 pl-10">Turbo UPI</span>
+                            <span class="pl-10 pt-5 text-2xl font-medium"> <span class="text-blue-700">Experience a 5X
+                                    faster checkout,</span>
+                                <span>achieve a 10% success rate boost, all without any redirections to UPI
+                                    apps.</span></span>
+                            <span class="text-slate-600 pl-10 pt-20 text-xl">Get India's fastest one-step UPI payment
+                                solution for businesses</span>
+                            <div class="mt-8 flex space-x-4">
+                                <button
+                                    class="bg-blue-500 border max-w-36 ml-10 py-2 px-1 rounded-md border-sky-500 text-lg font-medium text-white hover:bg-blue-800">
+                                    Sign Up Now ->
+                                </button>
+                                <a href="#" class="font-medium text-blue-600 pt-3 hover:underline">Know More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Duplicate folders here for Folder 2, Folder 3, etc. -->
+            <div class="flex-shrink-0 flex flex-row w-full">
+                <div class="pt-20 flex flex-row gap-8">
+                    <div class="bg-slate-50 w-[330px] h-[550px] ml-16">
+                        <div class="flex flex-col">
+                            <span class="text-slate-500 text-xl font-medium pt-10 pl-10">Line of Credit</span>
+                            <span class="pl-10 pt-5 text-2xl font-medium"> <span class="text-blue-700">Get a ₹50L
+                                    collateral-free credit line</span>
+                                <span>with low 1.5% monthly interest, and no pre-closure fees.</span></span>
+                            <span class="text-slate-600 pl-10 pt-32 text-xl">Tackle cash flow like a pro with a flexible
+                                credit line for new-age businesses</span>
+                            <div class="mt-8 flex space-x-4">
+                                <button
+                                    class="bg-blue-500 border max-w-36 ml-10 py-2 px-1 rounded-md border-sky-500 text-lg font-medium text-white hover:bg-blue-800">
+                                    Sign Up Now ->
+                                </button>
+                                <a href="#" class="font-medium text-blue-600 pt-3 hover:underline">Know More</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="bg-slate-50 w-[850px] h-[550px] flex flex-col">
+                        <span class="text-slate-500 text-xl font-medium pt-10 pl-10">Magic Checkout</span>
+                        <span class="pt-5 text-5xl font-medium pl-10"> <span class="text-blue-700">Witness a 40%
+                                increase in conversions,</span>
+                            <span>save up to 50% on international bank transfer charges.</span></span>
+                        <span class="pl-10 text-5xl font-medium">enjoy a 5X quicker checkout process, and reduce RTOs by
+                            50%.</span>
+                        <span class="text-slate-600 pl-10 pt-20 text-xl">Grow your e-commerce business with a
+                            made-for-D2C checkout experience</span>
+                        <div class="mt-8 flex space-x-4">
+                            <button
+                                class="bg-blue-500 border max-w-44 ml-10 py-2 px-3 rounded-md border-sky-500 text-xl font-medium text-white hover:bg-blue-800">
+                                Sign Up Now ->
+                            </button>
+                            <a href="#" class="font-medium text-blue-600 pt-3 hover:underline">Know More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-shrink-0 flex flex-row w-full">
+                <div class="pt-20 flex flex-row gap-8">
+                    <div class="bg-slate-50 w-[850px] h-[600px] ml-16 flex flex-col">
+                        <span class="text-slate-500 text-xl font-medium pt-10 pl-10">Optimizer</span>
+                        <span class="pl-10 pt-5 text-5xl font-medium"> <span class="text-blue-700">Utilise 15+ payment
+                                gateways for all Aggregators,</span>
+                            <span>save up to 50% on international bank transfer charges.</span></span>
+                        <span class="pl-10 text-5xl font-medium">improve success rates by 10% with zero downtime, and
+                            cut charges/fees by 15-30%.</span>
+                        <span class="text-slate-600 pl-10 pt-20 text-xl">Manage multiple payment gateways with an
+                            AI-powered infinity router</span>
+                        <div class="mt-8 flex space-x-4">
+                            <button
+                                class="bg-blue-500 border max-w-44 ml-10 py-2 px-3 rounded-md border-sky-500 text-xl font-medium text-white hover:bg-blue-800">
+                                Sign Up Now ->
+                            </button>
+                            <a href="#" class="font-medium text-blue-600 pt-3 hover:underline">Know More</a>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-50 w-[330px] h-[600px] mr-16">
+                        <div class="flex flex-col pr-12">
+                            <span class="text-slate-500 text-xl font-medium pt-10 pl-10">Payouts Pro</span>
+                            <span class="pl-10 pt-5 text-2xl font-medium"> <span class="text-blue-700">Automate
+                                    real-time routing across multiple accounts,</span>
+                                <span>achieve 99.9% success, prevent bank downtime disruptions.</span></span>
+                            <span class="text-slate-600 pl-10 pt-20 text-xl">Achieve unbeatable payouts success rates
+                                with our dynamic multi-bank routing</span>
+                            <div class="mt-8 flex space-x-4">
+                                <button
+                                    class="bg-blue-500 border max-w-36 ml-10 py-2 px-1 rounded-md border-sky-500 text-lg font-medium text-white hover:bg-blue-800">
+                                    Sign Up Now ->
+                                </button>
+                                <a href="#" class="font-medium text-blue-600 pt-3 hover:underline">Know More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Button -->
+        <button id="rightButton"
+            class="absolute right-0 top-[50%] transform -translate-y-[50%] bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+            &#10095;
+        </button>
+    </div>
+
+
+    <div class="w-[1349px] h-[900px] bg-sky-950">
+        <div class="w-[1349px] h-[70px] overflow-hidden bg-emerald-950">
+            <div id="scrollingDiv" class="scrolling-content flex gap-8">
+                <span class="text-2xl text-slate-300 pt-4 ml-5">CURL •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">JAVA •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">PYTHON •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">PHP •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">NODE JS •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">CURL •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">JAVA •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">PYTHON •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">PHP •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">NODE JS •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">CURL •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">JAVA •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">PYTHON •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">PHP •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">NODE JS •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">CURL •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">JAVA •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">PYTHON •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">PHP •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">NODE JS •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">CURL •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">JAVA •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">PYTHON •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">PHP •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">NODE JS •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">CURL •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">JAVA •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">PYTHON •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">PHP •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">NODE JS •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">CURL •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">JAVA •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">PYTHON •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">PHP •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">NODE JS •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">CURL •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">JAVA •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">PYTHON •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">PHP •</span>
+                <span class="text-2xl text-slate-300 pt-4 ml-5">NODE JS •</span>
+            </div>
+        </div>
+        <div class="flex flex-col text-6xl font-bold gap-4 pt-24 pl-10">
+            <span>Razorpay is built</span>
+            <span class="text-slate-200 text-6xl font-bold">for developers by developers</span>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
