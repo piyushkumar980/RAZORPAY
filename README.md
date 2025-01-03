@@ -1,0 +1,2 @@
+
+This project is a frontend clone of Razorpay, created using HTML, Tailwind CSS, and JavaScript. It replicates the key features and design elements of the Razorpay platform, offering a clean and user-friendly interface for payment processing. The layout and styling are powered by Tailwind CSS, ensuring a consistent and modern look, while JavaScript enhances the interactivity and functionality of the platform. This clone is designed to showcase the capabilities of HTML, CSS, and JavaScript in building modern web applications.
